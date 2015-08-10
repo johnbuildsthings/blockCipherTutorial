@@ -20,18 +20,8 @@ var bKey = utils.makeBinaryString( key );
 var keyLen = bKey.length;
 var pTextLen = bPlainText.length;
 
-
-
-// test if plainText needs to be padded
-if( pTextLen % keyLen !== 0 ){
-  var multiple = Math.ceil(pTextLen / keyLen);
-  var padding = (multiple * keyLen) - pTextLen;
-  while(padding > 0){
-    var pad = '00000000';
-    bPlainText.push(pad);
-    padding--;
-  }
-}
+// adds padding if neccessary to bplainText
+bPlainText = utils.pad(bPlainText, bKey);
 
 
 var encrypt = function(plainText, key){
@@ -52,7 +42,6 @@ var encrypt = function(plainText, key){
 // console.log('text: ', text, '\n', 'test encryption: ', test, '\n', 'key: ', bKey);
 
 // var xorTest = utils.xor('111011', '110101');
-
 // console.log(xorTest, 'expected: 00111');
 
 

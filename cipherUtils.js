@@ -64,8 +64,22 @@ exports.xor = function(str1, str2){
 }
 
 
+// test if plainText needs to be padded
+exports.pad = function(cipherText, key){
+  var keyLen = key.length;
+  var textLen = cipherText.length;
 
-
+  if( textLen % keyLen !== 0 ){
+    var multiple = Math.ceil(textLen / keyLen);
+    var padding = (multiple * keyLen) - textLen;
+    while(padding > 0){
+      var pad = '00000000';
+      cipherText.push(pad);
+      padding--;
+    }
+  }
+  return cipherText;
+}
 
 
 // //tests for converting to binary
