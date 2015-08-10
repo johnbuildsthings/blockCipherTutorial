@@ -47,9 +47,9 @@ var encrypt = function(plainText, key){
 }
 
 
-  // var text = ['01000110', '01101001', '01100111', '01101000', '01110100', '00100000'];
-  // var test = encrypt(text, bKey);
-  // console.log(text, '\n', bKey, '\n', test);
+// var text = ['01000110', '01101001', '01100111', '01101000', '01110100', '00100000'];
+// var test = encrypt(text, bKey);
+// console.log('text: ', text, '\n', 'test encryption: ', test, '\n', 'key: ', bKey);
 
 // var xorTest = utils.xor('111011', '110101');
 

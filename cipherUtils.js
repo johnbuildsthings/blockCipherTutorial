@@ -46,10 +46,19 @@ exports.makeBinaryString = function(plainText){
   return binaryArray;
 }
 
+
+// rebuild of the xor function will return 1 if one 
+// but not both of the of the strings is 1
 exports.xor = function(str1, str2){
   var result = '';
   for(var i=0; i<str1.length; i++){
-    result += str1[i] ^ str2[i];
+    var num1 = Number(str1[i]), 
+      num2 = Number(str2[i]);
+    if((!!num1 || !!num2) && !(!!num1 && !!num2)){
+      result += '1';
+    }else{
+      result += '0';
+    }
   }
   return result;
 }
@@ -73,3 +82,9 @@ exports.xor = function(str1, str2){
 // console.log(stringToDecimal("hello").length, '5');
 // console.log(stringToDecimal("there world").length, '11');
 // console.log(stringToDecimal('jump up, buckle up').length, '18');
+
+
+// //tests xor function
+// console.log(exports.xor("1001", "1000"), '0001');
+// console.log(exports.xor('11111', '10011'), '01100');
+// console.log(exports.xor('0101010', '1010101'), '1111111');
